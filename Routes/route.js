@@ -32,7 +32,7 @@ router.post("/register",async(req,res)=>{
             //adding user to the db
             const registeringUser=await addingUser(data);
             //sending mail to activate account
-            const link=`https://chic-peony-65e706.netlify.app/activation/${registeringUser[0]._id}`
+            const link=`https://jocular-travesseiro-99f8a3.netlify.app/activation/${registeringUser[0]._id}`
             //composing mail
             const composingMail={
                 from:"belle.blick37@ethereal.email",
@@ -98,7 +98,7 @@ router.post("/login",async(req,res)=>{
                 }else{
                     //if account is not active
                      //sending mail to activate account
-                    const link=`https://chic-peony-65e706.netlify.app/activation/${checkUser[0]._id}`
+                    const link=`https://jocular-travesseiro-99f8a3.netlify.app/activation/${checkUser[0]._id}`
                     //composing mail
                     const composingMail={
                         from:"fullstackpurpose@gmail.com",
@@ -146,7 +146,7 @@ router.post("/forgot",async(req,res)=>{
             //adding token to the database
             const setToken=await forgotToken(findUser[0]._id,token);
              //sending mail to reset password
-             const link=`https://chic-peony-65e706.netlify.app/reset/${findUser[0]._id}`
+             const link=`https://jocular-travesseiro-99f8a3.netlify.app/reset/${findUser[0]._id}`
              //composing mail
              const composingMail={
                  from:"fullstackpurpose@gmail.com",
@@ -229,7 +229,7 @@ router.post("/shortUrl",isAuthorized,async(req,res)=>{
         //creating randomstring
         const randomString=Math.random().toString(36).slice(5,9);
         //passing randomString as params
-        const link=`https://chic-peony-65e706.netlify.app/new/${randomString}`
+        const link=`https://jocular-travesseiro-99f8a3.netlify.app/new/${randomString}`
         //adding short url 
         const updateShortUrl=await addingShortUrl(findUrl._id,link,randomString);
         //finding url to send response
