@@ -101,7 +101,7 @@ router.post("/login",async(req,res)=>{
                     const link=`https://jocular-travesseiro-99f8a3.netlify.app/activation/${checkUser[0]._id}`
                     //composing mail
                     const composingMail={
-                        from:"fullstackpurpose@gmail.com",
+                        from:"belle.blick37@ethereal.email",
                         to:checkUser[0].email,
                         subject:"Account Activation Link",
                         html:`<a href=${link}><button style="background:violet;
@@ -149,7 +149,7 @@ router.post("/forgot",async(req,res)=>{
              const link=`https://jocular-travesseiro-99f8a3.netlify.app/reset/${findUser[0]._id}`
              //composing mail
              const composingMail={
-                 from:"fullstackpurpose@gmail.com",
+                 from:"belle.blick37@ethereal.email",
                  to:findUser[0].email,
                  subject:"Password Reset Link",
                  html:`<a href=${link}><button style="background:violet;
