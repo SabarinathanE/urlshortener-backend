@@ -1,11 +1,12 @@
 import { createTransport } from "nodemailer";
+import dotenv from 'dotenv';
 
 //creating transport to send mail
 export const transport=createTransport({
-    host: 'smtp.ethereal.email',
+    host: "smtp-relay.brevo.com",
     port: 587,
-    auth:{
-        user: "belle.blick37@ethereal.email",
-        pass: "mAgdAXxxKzdNjturdp",
+    auth: {
+      user: process.env.Email,
+      pass: process.env.PassWord,
     },
 })

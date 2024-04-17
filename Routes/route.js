@@ -1,6 +1,7 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
+import dotenv from 'dotenv';
 import { activation,findUser, findingUser, forgotToken, updatingPassword } from "../Controllers/Url.js";
 import addingUser from "../Controllers/Url.js";
 import { transport } from "../Mailers/NodeMailer.js";
@@ -35,7 +36,7 @@ router.post("/register",async(req,res)=>{
             const link=`https://jocular-travesseiro-99f8a3.netlify.app/activation/${registeringUser[0]._id}`
             //composing mail
             const composingMail={
-                from:"belle.blick37@ethereal.email",
+                from: process.env.Email,
                 to:registeringUser[0].email,
                 subject:"Account Activation Link",
                 html:`<a href=${link}><button style="background:violet;
@@ -101,7 +102,7 @@ router.post("/login",async(req,res)=>{
                     const link=`https://jocular-travesseiro-99f8a3.netlify.app/activation/${checkUser[0]._id}`
                     //composing mail
                     const composingMail={
-                        from:"belle.blick37@ethereal.email",
+                        from:process.env.Email,
                         to:checkUser[0].email,
                         subject:"Account Activation Link",
                         html:`<a href=${link}><button style="background:violet;
@@ -149,7 +150,7 @@ router.post("/forgot",async(req,res)=>{
              const link=`https://jocular-travesseiro-99f8a3.netlify.app/reset/${findUser[0]._id}`
              //composing mail
              const composingMail={
-                 from:"belle.blick37@ethereal.email",
+                 from:process.env.Email,
                  to:findUser[0].email,
                  subject:"Password Reset Link",
                  html:`<a href=${link}><button style="background:violet;
